@@ -1,4 +1,4 @@
-module muxx(CLK,INP, OUT, SEL);
+module mux8(CLK,INP, OUT, SEL);
 
 input CLK;
 input [7:0] INP;
