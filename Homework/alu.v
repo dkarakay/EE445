@@ -1,4 +1,4 @@
-module ALU #(parameter WIDTH=5)
+module alu #(parameter WIDTH=5)
 
 (	input CLK,
 	input  [WIDTH-1:0] AC,DR,
