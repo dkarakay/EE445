@@ -10,11 +10,13 @@ SIM ?= icarus
 TOPLEVEL_LANG ?=verilog
 
 
-VERILOG_SOURCES =$(CWD)/../../HOMEWORK/muxx.v
+VERILOG_SOURCES =$(CWD)/../../HOMEWORK/time_signals.v
+VERILOG_SOURCES +=$(CWD)/../../HOMEWORK/decoder.v
+VERILOG_SOURCES +=$(CWD)/../../HOMEWORK/sequence_counter.v
 
 
-TOPLEVEL = muxx
-MODULE := MUX_cocotb_test
+TOPLEVEL = time_signals
+MODULE := TS_cocotb_test
 COCOTB_HDL_TIMEUNIT=1us
 COCOTB_HDL_TIMEPRECISION=1us
 
