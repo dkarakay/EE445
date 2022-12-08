@@ -1,6 +1,6 @@
 <testsuites name="results">
   <testsuite name="all" package="all">
-    <property name="random_seed" value="1670523220" />
-    <testcase classname="MUX_cocotb_test" file="C:\Users\ogam\Desktop\EE445\Signed_Mag_Adder_Tests\tests\MUX_cocotb_test.py" lineno="11" name="mux_basic_test" ratio_time="4199703.618938635" sim_time_ns="21000" time="0.00500035285949707" />
+    <property name="random_seed" value="1670526269" />
+    <testcase classname="ALU_cocotb_test" file="C:\Users\ogam\Desktop\EE445\Signed_Mag_Adder_Tests\tests\ALU_cocotb_test.py" lineno="1" name="alu_basic_test" ratio_time="1619908.85293739" sim_time_ns="81000" time="0.0500028133392334" />
   </testsuite>
 </testsuites>

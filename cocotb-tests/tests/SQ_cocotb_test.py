@@ -26,8 +26,8 @@ async def sq_basic_test(dut):
     await clkedge
     print(f'ENABLE: {dut.INC.value}')
     print(f'RESET: {dut.RESET.value}')
-    print(f'OUT: {dut.count.value}')
-    assert dut.count.value == 0
+    print(f'OUT: {dut.COUNT.value}')
+    assert dut.COUNT.value == 0
     print('------')
 
 
@@ -38,10 +38,10 @@ async def sq_basic_test(dut):
     await clkedge
     print(f'ENABLE: {dut.INC.value}')
     print(f'RESET: {dut.RESET.value}')
-    print(f'OUT: {dut.count.value}')
-    assert dut.count.value == 1
+    print(f'OUT: {dut.COUNT.value}')
+    assert dut.COUNT.value == 1
     print('------')
-    out = dut.count.value
+    out = dut.COUNT.value
 
     # Check SQ
     INC = 1
@@ -50,8 +50,8 @@ async def sq_basic_test(dut):
     await clkedge
     print(f'ENABLE: {dut.INC.value}')
     print(f'RESET: {dut.RESET.value}')
-    print(f'OUT: {dut.count.value}')
-    assert dut.count.value == out+1
+    print(f'OUT: {dut.COUNT.value}')
+    assert dut.COUNT.value == out+1
     print('------')
 
 

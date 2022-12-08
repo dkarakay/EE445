@@ -10,11 +10,11 @@ SIM ?= icarus
 TOPLEVEL_LANG ?=verilog
 
 
-VERILOG_SOURCES =$(CWD)/../../HOMEWORK/mux8.v
+VERILOG_SOURCES =$(CWD)/../../HOMEWORK/alu.v
 
 
-TOPLEVEL = mux8
-MODULE := MUX_cocotb_test
+TOPLEVEL = alu
+MODULE := ALU_cocotb_test
 COCOTB_HDL_TIMEUNIT=1us
 COCOTB_HDL_TIMEPRECISION=1us
 
