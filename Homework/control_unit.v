@@ -2,6 +2,9 @@ module control_unit(
 input CLK,
 input INTERRUPT_R,
 input [15:0] IR,
+input [15:0] DR,
+input [15:0] AC,
+input E,
 input INDIRECT_BIT,
 input [15:0] TIME_SIGNAL,
 input [7:0]  DEC_SIGNAL,
@@ -12,7 +15,8 @@ output OUTR_LOAD,
 output ALU_LOAD, ALU_CLEAR, ALU_INC,
 output AR_LOAD, AR_INC, AR_CLEAR,
 output DR_LOAD, DR_INC,
-output PC_LOAD, PC_CLEAR, PC_INC
+output PC_LOAD, PC_CLEAR, PC_INC,
+output [7:0] SIG
 );
 
 
@@ -54,9 +58,24 @@ assign PC_LOAD = (DEC_SIGNAL[4] && TIME_SIGNAL[4]) || (DEC_SIGNAL[5] && TIME_SIG
 
 assign PC_CLEAR = (INTERRUPT_R && TIME_SIGNAL[1]); 
 
-//assign PC_INC = ((INTERRUPT_R && TIME_SIGNAL[1])
-//|| (INTERRUPT_R && TIME_SIGNAL[2])/
-//); 
+assign PC_INC = (~INTERRUPT_R && TIME_SIGNAL[1]) || (INTERRUPT_R && TIME_SIGNAL[2])
+|| ((DR == 0) && DEC_SIGNAL[6] && TIME_SIGNAL[6])
+|| (((DEC_SIGNAL[7]) && ~INDIRECT_BIT && (TIME_SIGNAL[3])) && ((~AC[15] && IR[4]) 
+|| (AC[15] && IR[3]) || (~AC && IR[2]) || (E && IR[1])));
+
+
+assign SIG[7] = (((DEC_SIGNAL[0] ||
+DEC_SIGNAL[1] || DEC_SIGNAL[3] || DEC_SIGNAL[6])
+&& TIME_SIGNAL[4]) || (~DEC_SIGNAL[7] && INDIRECT_BIT && TIME_SIGNAL[3])
+|| (~INTERRUPT_R && TIME_SIGNAL[1]));
+
+assign SIG[6] = INTERRUPT_R && TIME_SIGNAL[1];
+assign SIG[5] = ~INTERRUPT_R && TIME_SIGNAL[2];
+assign SIG[4] = DEC_SIGNAL[3] && TIME_SIGNAL[4];
+assign SIG[3] = ((DEC_SIGNAL[2] && TIME_SIGNAL[5]) || (DEC_SIGNAL[6] && TIME_SIGNAL[6]));
+assign SIG[2] = DEC_SIGNAL[5] && TIME_SIGNAL[4];
+assign SIG[1] = ((DEC_SIGNAL[4] && TIME_SIGNAL[4]) || (DEC_SIGNAL[5] && TIME_SIGNAL[5]));
+
 
 assign DR_INC = (DEC_SIGNAL[6] && TIME_SIGNAL[5]);
 

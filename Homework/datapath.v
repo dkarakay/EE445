@@ -1,6 +1,6 @@
 module datapath(
 input CLK,
-
+input E,
 input AR_RESET, AR_INC, AR_WRITE,
 input [11:0] AR_INP, 
 input [11:0] AR_OUT,
@@ -31,8 +31,9 @@ input WRITE_ENABLE, READ_ENABLE,
 input [15:0] READ_MEMORY,
 input [15:0] WRITE_MEMORY,
 input [11:0] INP_ADD
-
 );
+
+
 
 register #(.WIDTH(12)) PC (.CLK(CLK), .RESET(PC_RESET), .INC(PC_INC), .WRITE(PC_WRITE), .LOAD(BUS_OUTPUT), .OUT(PC_OUT));
 register #(.WIDTH(12)) AR (.CLK(CLK), .RESET(AR_RESET), .INC(AR_INC), .WRITE(AR_WRITE), .LOAD(BUS_OUTPUT), .OUT(AR_OUT));
@@ -51,9 +52,9 @@ assign muxINPUT[5] = IR_OUT;
 assign muxINPUT[6] = TR_OUT;
 assign muxINPUT[7] = READ_ENABLE;
 
-mux8 BUS(.INP(muxINPUT), .OUT(BUS_OUTPUT));
+mux8 BUS(.INP(muxINPUT), .SEL(SEL), .OUT(BUS_OUTPUT));
 
-alu ALU();
+alu ALU(.CLK(CLK), .AC(AC), .DR(DR), .E(E), .SEL(SEL), .OUT(AC_INP), .OVF(OVF), .Z(Z), .N(N));
 memory mem(.CLK(CLK), .WRITE_ENABLE(WRITE_ENABLE), .INP_ADD(INP_ADD), .OUT(READ_MEMORY));
 
 endmodule

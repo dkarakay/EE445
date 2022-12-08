@@ -10,5 +10,9 @@ output [15:0] DR
 
 
 
+control_unit(
+.CLK(CLK),
+.INTERRUPT_R(INTERRUPT_R) 
+);
 
 endmodule
