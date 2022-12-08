@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1670523220" />
+    <testcase classname="MUX_cocotb_test" file="C:\Users\ogam\Desktop\EE445\Signed_Mag_Adder_Tests\tests\MUX_cocotb_test.py" lineno="11" name="mux_basic_test" ratio_time="4199703.618938635" sim_time_ns="21000" time="0.00500035285949707" />
+  </testsuite>
+</testsuites>

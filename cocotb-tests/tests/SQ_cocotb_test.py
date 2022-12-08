@@ -19,7 +19,7 @@ async def sq_basic_test(dut):
     #wait until the falling edge
     await clkedge
 
-    # Check MUX
+    # Check SQ
     INC=0
     dut.INC.value=INC
     dut.RESET.value=1
@@ -31,7 +31,7 @@ async def sq_basic_test(dut):
     print('------')
 
 
-  # Check MUX
+  # Check SQ
     INC=1
     dut.INC.value=INC
     dut.RESET.value=0
@@ -43,7 +43,7 @@ async def sq_basic_test(dut):
     print('------')
     out = dut.count.value
 
-    # Check MUX
+    # Check SQ
     INC = 1
     dut.INC.value = INC
     dut.RESET.value = 0

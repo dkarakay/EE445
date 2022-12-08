@@ -1,6 +1,0 @@
-<testsuites name="results">
-  <testsuite name="all" package="all">
-    <property name="random_seed" value="1670402671" />
-    <testcase classname="TS_cocotb_test" file="C:\Users\ogam\Desktop\EE445\Signed_Mag_Adder_Tests\tests\TS_cocotb_test.py" lineno="11" name="sq_basic_test" ratio_time="696930.2959216215" sim_time_ns="161000" time="0.23101305961608887" />
-  </testsuite>
-</testsuites>
