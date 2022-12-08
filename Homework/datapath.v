@@ -30,7 +30,9 @@ input [15:0] BUS_OUTPUT,
 input WRITE_ENABLE, READ_ENABLE,
 input [15:0] READ_MEMORY,
 input [15:0] WRITE_MEMORY,
-input [11:0] INP_ADD
+input [11:0] INP_ADD,
+input [3:0] SEL,
+output OVF, CO, N, Z
 );
 
 
